@@ -14,3 +14,4 @@ Go code!
 */
 
 const name = 'Naj'
+const last = 'Lee'
