@@ -10,7 +10,13 @@ const actionsRouter = require('../api/actions/actions-router')
 
 server.use(express.json())
 server.use(morgan('combined'))
-
+server.use('/api/actions',actionsRouter);
+server.use('/api/projects',projectsRouter)
+server.use((err, req, res, next) =>{
+    console.log(res.status(500).json({
+        message: "something went wrong"
+    }))
+})
 server.get('/', (req, res) => {
     res.status(200).send({
         message: 'Server RUnning'
